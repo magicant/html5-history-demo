@@ -1,8 +1,12 @@
+function changeImage(imageSrc) {
+	document.getElementById("image").src = imageSrc;
+	document.title = imageSrc;
+}
+
 window.onload = function() {
 	function setEvent(link, imageSrc) {
 		link.onclick = function() {
-			document.getElementById("image").src = imageSrc;
-			document.title = imageSrc;
+			changeImage(imageSrc);
 			history.pushState(imageSrc, null, link.href);
 			return false;
 		}
@@ -13,4 +17,8 @@ window.onload = function() {
 		var link = links[i];
 		setEvent(link, "image" + (Number(i) + 1) + ".png");
 	}
+};
+
+window.onpopstate = function() {
+	changeImage(history.state);
 };
