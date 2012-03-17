@@ -17,6 +17,9 @@ window.onload = function() {
 		var link = links[i];
 		setEvent(link, "image" + (Number(i) + 1) + ".png");
 	}
+
+	var img = document.getElementById("image");
+	history.replaceState(img.src, null);
 };
 
 window.onpopstate = function() {
