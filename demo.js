@@ -1,7 +1,9 @@
 window.onload = function() {
 	function setEvent(link, imageSrc) {
 		link.onclick = function() {
-			alert(imageSrc);
+			document.getElementById("image").src = imageSrc;
+			document.title = imageSrc;
+			history.pushState(imageSrc, null, link.href);
 			return false;
 		}
 	}
